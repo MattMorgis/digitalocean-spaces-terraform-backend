@@ -14,6 +14,6 @@ variable "do_nyc3" {
 }
 
 variable "ubuntu" {
-  description = "Default LTS"
-  default     = "ubuntu-16-04-x64"
+  description = "Default Ubuntu LTS"
+  default     = "ubuntu-18-04-x64"
 }

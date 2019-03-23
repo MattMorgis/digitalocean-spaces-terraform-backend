@@ -15,9 +15,9 @@ provider "digitalocean" {
   # export DIGITALOCEAN_TOKEN="API TOKEN"
 }
 
-resource "digitalocean_droplet" "app" {
-  name   = "my-first-tf-droplet"
-  image  = "ubuntu-18-04-x64"
-  region = "nyc1"
+resource "digitalocean_droplet" "example_server" {
+  image  = "${var.ubuntu}"
+  region = "${var.do_nyc1}"
   size   = "512mb"
+  name   = "my-first-terraform-droplet"
 }

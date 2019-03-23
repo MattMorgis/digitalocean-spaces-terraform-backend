@@ -1,9 +1,9 @@
 terraform {
   backend "s3" {
     endpoint                    = "sfo2.digitaloceanspaces.com"
-    region                      = "us-west-1"
     key                         = "terraform.tfstate"
     bucket                      = "rappiddev-terraform-remote-state"
+    region                      = "us-west-1"
     skip_requesting_account_id  = true
     skip_credentials_validation = true
     skip_get_ec2_platforms      = true

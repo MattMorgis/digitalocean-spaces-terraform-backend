@@ -1,6 +1,6 @@
 # DigitalOcean Spaces as a Terraform Backend
 
-Demonstrates how to use [DigitalOcean Spaces](https://www.digitalocean.com/products/spaces/) as a Terraform [Backend](https://www.terraform.io/docs/backends/index.html).
+Demonstrates how to use [DigitalOcean Spaces](https://www.digitalocean.com/products/spaces/) as a [Terraform Backend](https://www.terraform.io/docs/backends/index.html).
 
 DigitalOcean Spaces are `S3` compatible, making the large ecosystem of `S3` tools and libraries available.
 
@@ -9,11 +9,11 @@ DigitalOcean Spaces are `S3` compatible, making the large ecosystem of `S3` tool
 - Create a `Space` via the DigitalOcean console or CLI
 - A Spaces `Access Key` and `Secret`
 - The [`aws cli`](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) installed
-- _Optional:_ A DigitalOcean personal access token (used to spin up an example Droplet)
+- _Optional:_ A DigitalOcean personal access token (used to create an example Droplet)
 
 ## Setup
 
-We can use the [`S3` Terraform Backend](https://www.terraform.io/docs/backends/types/s3.html) to instead point to our DigitalOcean `Space`.
+We can use the [`S3`](https://www.terraform.io/docs/backends/types/s3.html) Terraform Backend to instead point to our `Space`.
 
 The required keys are `endpoint`, `key`, and `bucket`.
 
@@ -40,13 +40,13 @@ terraform {
 
 Terraform uses the standard `.aws/credentials` file to authenticate to the `S3` backend. This is created by the `aws cli`.
 
-We can use [named profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html) to create one for our DigitalOcean Spaces.
+We can use [named profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html) to create one to access DigitalOcean Spaces.
 
 ```bash
 aws configure --profile digitalocean
 ```
 
-You can tell the `aws cli` (and Terraform by extension) which profile to use by setting the `AWS_PROFILE` environment variable.
+You can tell the `aws cli` (and the `terraform` command by extension) which profile to use by setting the `AWS_PROFILE` environment variable.
 
 ```bash
 export AWS_PROFILE=digitalocean

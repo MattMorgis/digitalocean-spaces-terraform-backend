@@ -16,8 +16,9 @@ provider "digitalocean" {
 }
 
 resource "digitalocean_droplet" "example_server" {
-  image  = "${var.ubuntu}"
-  region = "${var.do_nyc1}"
-  size   = "512mb"
-  name   = "my-first-terraform-droplet"
+  image    = "${var.ubuntu}"
+  region   = "${var.do_nyc1}"
+  ssh_keys = ["${var.ssh_fingerprint}"]
+  size     = "512mb"
+  name     = "my-first-terraform-droplet"
 }

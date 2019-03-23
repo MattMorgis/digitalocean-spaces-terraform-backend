@@ -80,11 +80,31 @@ Set environment variable `DIGITALOCEAN_TOKEN` with a DigitalOcean Personal Acces
 export DIGITALOCEAN_TOKEN="YOUR API TOKEN"
 ```
 
+Add your SSH key fingerprint to `variables.tf`. Your key must be added in the DigitalOcean console.
+
+```bash
+ssh-keygen -E md5 -lf ~/.ssh/id_rsa.pub | awk '{print $2}'
+```
+
+**Copy everything except the initial `MD5:`** and paste it into the variable.
+
 Create a \$5/month Ubuntu Droplet:
 
 ```bash
 terraform plan
 terraform destroy
+```
+
+To get the IP of the Droplet:
+
+```bash
+terraform output ip
+```
+
+To SSH into the Droplet:
+
+```
+ssh root@<ip>
 ```
 
 To delete the Droplet:
